@@ -20,6 +20,9 @@ data/processed/
 .vscode/
 .idea/
 
+# Guia pessoal (não publicar)
+GUIA_VIDEO.md
+
 # OS
 .DS_Store
 Thumbs.db
