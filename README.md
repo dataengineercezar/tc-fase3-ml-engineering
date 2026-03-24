@@ -165,4 +165,4 @@ Para explorar passo a passo, utilize os notebooks em `notebooks/`.
 
 ## Autores
 
-[Seu nome / Grupo]
+[Cézar Augusto Meira Carmo / Individual]
