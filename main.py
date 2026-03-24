@@ -6,6 +6,7 @@ Pipeline completo: EDA + Modelagem Supervisionada + Modelagem Não Supervisionad
 import warnings
 warnings.filterwarnings("ignore")
 
+import shutil
 import matplotlib
 matplotlib.use("Agg")
 
@@ -236,7 +237,21 @@ def run_eda(df: pd.DataFrame, airlines: pd.DataFrame, airports: pd.DataFrame):
         print("\n[INFO] Plotly não disponível — mapa geográfico não gerado.")
 
 
+def _clean_outputs():
+    """Remove evidências de execuções anteriores."""
+    for folder in [FIG_DIR, OUTPUTS_DIR / "models"]:
+        if folder.exists():
+            shutil.rmtree(folder)
+        folder.mkdir(parents=True, exist_ok=True)
+    print("Outputs anteriores removidos.")
+
+
 def main():
+    # =========================
+    # Limpar outputs anteriores
+    # =========================
+    _clean_outputs()
+
     # =========================
     # Carregar e preparar dados
     # =========================

@@ -79,16 +79,24 @@ def run_classification(df: pd.DataFrame) -> dict:
     else:
         X_train_s, y_train_s = X_train, y_train
 
+    # Calcular ratio para balanceamento de classes
+    neg_count = (y_train_s == 0).sum()
+    pos_count = (y_train_s == 1).sum()
+    scale_ratio = neg_count / pos_count
+
     models = {
         "Random Forest": RandomForestClassifier(
-            n_estimators=200, max_depth=15, random_state=42, n_jobs=-1
+            n_estimators=200, max_depth=15, random_state=42, n_jobs=-1,
+            class_weight="balanced"
         ),
         "XGBoost": XGBClassifier(
             n_estimators=200, max_depth=8, learning_rate=0.1,
-            random_state=42, n_jobs=-1, eval_metric="logloss"
+            random_state=42, n_jobs=-1, eval_metric="logloss",
+            scale_pos_weight=scale_ratio
         ),
         "Logistic Regression": LogisticRegression(
-            max_iter=1000, random_state=42, n_jobs=-1
+            max_iter=1000, random_state=42, n_jobs=-1,
+            class_weight="balanced"
         ),
     }
 
