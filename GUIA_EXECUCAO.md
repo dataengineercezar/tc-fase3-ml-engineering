@@ -229,9 +229,9 @@ TC3/
 │   ├── raw/              # Dados brutos (flights.csv, airlines.csv, airports.csv)
 │   └── processed/        # (reservado para dados processados)
 ├── notebooks/
-│   ├── 01_EDA.ipynb              # Análise Exploratória (34 células)
+│   ├── 01_EDA.ipynb              # Análise Exploratória (40 células)
 │   ├── 02_supervised.ipynb       # Classificação + Regressão (14 células)
-│   └── 03_unsupervised.ipynb     # Clustering + PCA (13 células)
+│   └── 03_unsupervised.ipynb     # Clustering + PCA (14 células)
 ├── src/
 │   ├── __init__.py
 │   ├── data_loader.py            # Carregamento e limpeza
